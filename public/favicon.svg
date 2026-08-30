@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="100%" height="100%">
+  <!-- Midnight Navy Base -->
+  <circle cx="32" cy="32" r="32" fill="#0B1121" />
+  
+  <!-- Subtle Gold Border Ring -->
+  <circle cx="32" cy="32" r="29.5" fill="none" stroke="#C5A14E" stroke-width="1.5" stroke-opacity="0.3" />
+  
+  <!-- Open Book Base -->
+  <path d="M 32 46 C 25 43.5 19 44 14 45.5 L 14 33.5 C 19 32 25 31.5 32 34 Z" 
+        fill="#C5A14E" fill-opacity="0.15" stroke="#C5A14E" stroke-width="2" stroke-linejoin="round" />
+  <path d="M 32 46 C 39 43.5 45 44 50 45.5 L 50 33.5 C 45 32 39 31.5 32 34 Z" 
+        fill="#C5A14E" fill-opacity="0.15" stroke="#C5A14E" stroke-width="2" stroke-linejoin="round" />
+        
+  <!-- Book Spine -->
+  <path d="M 32 34 L 32 47" stroke="#C5A14E" stroke-width="2" stroke-linecap="round" />
+  
+  <!-- Book Page Accents -->
+  <path d="M 18 37 C 22 36 26 36 28 37 M 18 41 C 22 40 26 40 28 41" 
+        stroke="#C5A14E" stroke-width="1.2" stroke-linecap="round" stroke-opacity="0.6" />
+  <path d="M 36 37 C 38 36 42 36 46 37 M 36 41 C 38 40 42 40 46 41" 
+        stroke="#C5A14E" stroke-width="1.2" stroke-linecap="round" stroke-opacity="0.6" />
+        
+  <!-- Elegant Feather Quill -->
+  <!-- Quill Feather Body -->
+  <path d="M 47 13 C 44.5 17 38.5 22 33 26.5 C 30 29 28 32 26 37 C 29.5 33 35.5 28 42.5 21.5 C 45.5 18.5 47.2 15.5 47 13 Z" 
+        fill="#C5A14E" />
+  <!-- Feather Shaft / Rachis -->
+  <path d="M 26 37 C 32 29 38 21 47 13" 
+        stroke="#D4B86A" stroke-width="1.8" stroke-linecap="round" fill="none" />
+  <!-- Quill Nib -->
+  <path d="M 26 37 L 24 40 L 27.5 38.5 Z" 
+        fill="#D4B86A" stroke="#C5A14E" stroke-width="0.5" />
+  <!-- Quill Feather Notch -->
+  <path d="M 41 20.5 L 37.5 22.5" 
+        stroke="#0B1121" stroke-width="1.5" stroke-linecap="round" />
+</svg>

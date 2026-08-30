@@ -1,0 +1,52 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Helper function to check if user is logged in
+    function isAuthenticated() {
+      return request.auth != null;
+    }
+
+    // 1. Collection Group Rule for Shared Diaries Across Users
+    match /{path=**}/diaries/{diaryId} {
+      allow read, write: if isAuthenticated();
+
+      match /entries/{entryId} {
+        allow read, write: if isAuthenticated();
+      }
+
+      match /messages/{messageId} {
+        allow read, write: if isAuthenticated();
+      }
+    }
+
+    // 2. Global Invite Codes Lookup Collection
+    match /invite_codes/{code} {
+      allow read, write: if isAuthenticated();
+    }
+
+    // 3. User Profiles and Subcollections
+    match /users/{uid} {
+      allow read, write: if isAuthenticated();
+
+      match /{document=**} {
+        allow read, write: if isAuthenticated();
+      }
+    }
+
+    // 4. Antarang Community Social Feed (Photos, Pick-up Lines, Shayaris & Likes)
+    match /posts/{postId} {
+      allow read, create, update: if isAuthenticated();
+      allow delete: if isAuthenticated() && resource.data.authorUid == request.auth.uid;
+    }
+
+    // 5. Instagram-Style 1-on-1 Direct Messages (DMs & Whispers)
+    match /direct_chats/{chatId} {
+      allow read, create, update: if isAuthenticated();
+
+      match /messages/{messageId} {
+        allow read, create, update: if isAuthenticated();
+      }
+    }
+  }
+}

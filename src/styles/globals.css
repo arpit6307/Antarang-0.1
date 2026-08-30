@@ -1,0 +1,278 @@
+@import "tailwindcss";
+
+@theme {
+  --color-midnight: #0B1121;
+  --color-midnight-light: #1A2332;
+  --color-midnight-lighter: #243044;
+  --color-wine: #5B1A2A;
+  --color-wine-light: #7A2E3F;
+  --color-wine-dark: #3D0F1C;
+  --color-gold: #C5A14E;
+  --color-gold-light: #D4B86A;
+  --color-gold-dark: #A8863A;
+  --color-cream: #FAF3E6;
+  --color-cream-dark: #F0E6D0;
+  --color-cream-light: #FFFCF5;
+  --color-ink: #2C2416;
+  --color-ink-muted: #6B5D4D;
+  --color-ink-light: #9B8E7E;
+
+  --font-serif: "Playfair Display", Georgia, "Times New Roman", serif;
+  --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+
+  --shadow-page: 0 2px 20px rgba(0, 0, 0, 0.3);
+  --shadow-page-edge: inset -8px 0 12px -8px rgba(0, 0, 0, 0.15);
+  --shadow-book: 0 8px 32px rgba(0, 0, 0, 0.4);
+  --shadow-glow-gold: 0 0 20px rgba(197, 161, 78, 0.3);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--color-midnight);
+  color: var(--color-cream);
+  min-height: 100vh;
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Light Theme Overrides - High Contrast & Crisp Icons */
+html.light body,
+html[data-theme="light"] body {
+  background-color: #F8F3EA;
+  color: #1A1308;
+}
+
+html.light aside,
+html[data-theme="light"] aside,
+html.light nav.md\:hidden,
+html[data-theme="light"] nav.md\:hidden {
+  background-color: #EDE3D3 !important;
+  border-color: rgba(168, 134, 58, 0.35) !important;
+}
+
+html.light aside nav a,
+html[data-theme="light"] aside nav a,
+html.light nav.md\:hidden a,
+html[data-theme="light"] nav.md\:hidden a {
+  color: #3D2F1D !important;
+}
+
+html.light aside nav a:hover,
+html[data-theme="light"] aside nav a:hover,
+html.light nav.md\:hidden a:hover,
+html[data-theme="light"] nav.md\:hidden a:hover {
+  background-color: rgba(197, 161, 78, 0.2) !important;
+  color: #1A1308 !important;
+}
+
+html.light .bg-cream,
+html[data-theme="light"] .bg-cream {
+  background-color: #F8F3EA !important;
+}
+
+html.light .bg-white,
+html[data-theme="light"] .bg-white {
+  background-color: #FFFFFF !important;
+  color: #1A1308 !important;
+}
+
+html.light .bg-midnight,
+html[data-theme="light"] .bg-midnight {
+  background-color: #EDE3D3 !important;
+  color: #1A1308 !important;
+}
+
+html.light .bg-midnight-light,
+html[data-theme="light"] .bg-midnight-light {
+  background-color: #E2D5C3 !important;
+  color: #1A1308 !important;
+}
+
+html.light .text-cream,
+html[data-theme="light"] .text-cream,
+html.light .text-cream-dark\/60,
+html[data-theme="light"] .text-cream-dark\/60,
+html.light .text-ink-muted,
+html[data-theme="light"] .text-ink-muted {
+  color: #3D2F1D !important;
+}
+
+html.light .text-midnight,
+html[data-theme="light"] .text-midnight {
+  color: #1A1308 !important;
+}
+
+html.light .text-gold,
+html[data-theme="light"] .text-gold {
+  color: #8C6A20 !important;
+}
+
+html.light .border-gold\/20,
+html[data-theme="light"] .border-gold\/20,
+html.light .border-gold\/15,
+html[data-theme="light"] .border-gold\/15 {
+  border-color: rgba(140, 106, 32, 0.35) !important;
+}
+
+html.light svg,
+html[data-theme="light"] svg {
+  stroke-width: 2.2px !important;
+}
+
+.font-serif {
+  font-family: var(--font-serif);
+}
+
+.font-sans {
+  font-family: var(--font-sans);
+}
+
+/* Paper grain simulation on cream backgrounds */
+.paper-texture {
+  background-color: var(--color-cream);
+  background-image:
+    radial-gradient(rgba(44, 36, 22, 0.04) 1px, transparent 0),
+    radial-gradient(rgba(44, 36, 22, 0.02) 1px, transparent 0);
+  background-size: 24px 24px, 12px 12px;
+  background-position: 0 0, 6px 6px;
+}
+
+/* Page depth & edge shadow */
+.page-shadow {
+  box-shadow: var(--shadow-page), var(--shadow-page-edge);
+}
+
+.book-shadow {
+  box-shadow: var(--shadow-book);
+}
+
+.gold-glow {
+  box-shadow: var(--shadow-glow-gold);
+}
+
+/* Custom thin scrollbar (gold thumb on midnight track) */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-midnight);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-gold-dark);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-gold);
+}
+
+/* Text Selection */
+::selection {
+  background-color: var(--color-gold);
+  color: var(--color-midnight);
+}
+
+::-moz-selection {
+  background-color: var(--color-gold);
+  color: var(--color-midnight);
+}
+
+/* TipTap Editor ProseMirror Styling */
+.ProseMirror {
+  outline: none;
+  font-family: var(--font-serif);
+  color: var(--color-ink);
+  line-height: 1.85;
+  font-size: 1.125rem;
+  min-height: 240px;
+}
+
+.ProseMirror:focus {
+  outline: none;
+}
+
+.ProseMirror p {
+  margin-bottom: 1.25em;
+}
+
+.ProseMirror p:last-child {
+  margin-bottom: 0;
+}
+
+.ProseMirror h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--color-wine);
+  margin-top: 1.5em;
+  margin-bottom: 0.75em;
+  line-height: 1.25;
+}
+
+.ProseMirror h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--color-wine);
+  margin-top: 1.3em;
+  margin-bottom: 0.6em;
+  line-height: 1.3;
+}
+
+.ProseMirror h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--color-wine);
+  margin-top: 1.2em;
+  margin-bottom: 0.5em;
+  line-height: 1.4;
+}
+
+.ProseMirror blockquote {
+  border-left: 3px solid var(--color-gold);
+  padding-left: 1.25rem;
+  margin-left: 0;
+  margin-right: 0;
+  font-style: italic;
+  color: var(--color-ink-muted);
+}
+
+.ProseMirror ul {
+  list-style-type: disc;
+  padding-left: 1.5rem;
+  margin-bottom: 1.25em;
+}
+
+.ProseMirror ol {
+  list-style-type: decimal;
+  padding-left: 1.5rem;
+  margin-bottom: 1.25em;
+}
+
+.ProseMirror li {
+  margin-bottom: 0.35em;
+}
+
+.ProseMirror hr {
+  border: none;
+  border-top: 1px solid rgba(197, 161, 78, 0.4);
+  margin: 2em 0;
+}
+
+.ProseMirror p.is-editor-empty:first-child::before {
+  content: attr(data-placeholder);
+  float: left;
+  color: var(--color-ink-light);
+  pointer-events: none;
+  height: 0;
+  font-style: italic;
+}
